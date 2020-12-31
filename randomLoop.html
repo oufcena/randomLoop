@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Random Magic!</h1>
+
+<script>
+var tag, CSS, txt;
+tag = [
+  `h1`,
+  `li`,
+  `button`,
+  `h3`,
+  `blockquote`
+];
+CSS = [
+  `color:red;background:yellow;`,
+  `color:blue;background:pink;`,
+  `color:#fff;background:#000;`,
+  `color:green;background:lightblue;`
+];
+txt = [
+  `Hello World!`,
+  `Hello Hell!`,
+  `Hello Darkness!`,
+  `Hello Sun!`
+]; 
+
+function loop(){ 
+  var tagIndex, CSSIndex, txtIndex, JSX, that;
+  
+  tagIndex = Math.floor( Math.random() * tag.length );
+  CSSIndex = Math.floor( Math.random() * CSS.length );
+  txtIndex = Math.floor( Math.random() * txt.length );
+  
+  JSX = document.body;
+  that = JSX.children[JSX.children.length-1];
+  that.outerHTML = `
+  <${tag[tagIndex]} style="${CSS[CSSIndex]}"
+  >${txt[txtIndex]}
+  </${tag[tagIndex]}>
+  `;
+  setTimeout(loop, 3000);
+} loop();
+
+</script>
+
+</body>
+</html>
+
+
